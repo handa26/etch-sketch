@@ -1,12 +1,30 @@
-.title {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.header button {
+  width: 150px;
+  height: 30px;
 }
 
 .container  {
   display: flex;
   flex-wrap: wrap;
 
-  width: 850px;
+  width: 840px;
   margin: 0 auto;
 }
 
