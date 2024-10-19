@@ -8,7 +8,7 @@ function createGrid(gridSize) {
 
   let boxes;
 
-  let containerWidth = 840;
+  let containerWidth = 570;
   container.style.width = `${containerWidth}px`;
 
   let boxSize = containerWidth / gridSize;
@@ -69,4 +69,4 @@ changeGrid.addEventListener("click", () => {
   updateGrid();
 });
 
-createGrid(16);
+createGrid(8);
