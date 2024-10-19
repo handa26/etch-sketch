@@ -29,14 +29,14 @@ function createGrid(gridSize) {
     itemContainer.addEventListener("mousedown", () => {
       isDrawing = true;
       if (colorVal > 0) {
-        colorVal -= 10;
+        colorVal -= 5;
         itemContainer.style.backgroundColor = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
       }
     });
 
     itemContainer.addEventListener("mousemove", () => {
       if (isDrawing && colorVal > 0) {
-        colorVal -= 10;
+        colorVal -= 5;
         itemContainer.style.backgroundColor = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
       }
     });
