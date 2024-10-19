@@ -1,12 +1,13 @@
 const container = document.querySelector(".container");
 const changeGrid = document.querySelector("#change-grid");
+const resetBtn = document.querySelector("#reset-btn");
 
 let isDrawing = false;
+let boxes;
+let userGridSize = 16;
 
 function createGrid(gridSize) {
   container.innerHTML = "";
-
-  let boxes;
 
   let containerWidth = 570;
   container.style.width = `${containerWidth}px`;
@@ -46,6 +47,8 @@ function createGrid(gridSize) {
 
     container.appendChild(itemContainer);
     itemContainer.appendChild(counterDiv);
+
+    boxes = document.querySelectorAll(".box");
   }
 
   document.addEventListener("mouseup", () => {
@@ -54,7 +57,6 @@ function createGrid(gridSize) {
 }
 
 function updateGrid() {
-  let userGridSize;
 
   do {
     userGridSize = parseInt(
@@ -69,4 +71,9 @@ changeGrid.addEventListener("click", () => {
   updateGrid();
 });
 
-createGrid(8);
+resetBtn.addEventListener("click", () => {
+  boxes.forEach(x => x.style.backgroundColor = "white");
+  createGrid(userGridSize);
+});
+
+createGrid(userGridSize);
