@@ -18,6 +18,8 @@ function createGrid(gridSize) {
     const counterDiv = document.createElement("div");
     boxes = document.querySelectorAll(".box");
 
+    let colorVal = 76;
+
     itemContainer.classList.add("box");
 
     itemContainer.style.width = `${boxSize}px`;
@@ -25,12 +27,16 @@ function createGrid(gridSize) {
 
     itemContainer.addEventListener("mousedown", () => {
       isDrawing = true;
-      itemContainer.style.backgroundColor = "black";
+      if (colorVal > 0) {
+        colorVal -= 10;
+        itemContainer.style.backgroundColor = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
+      }
     });
 
     itemContainer.addEventListener("mousemove", () => {
-      if (isDrawing) {
-        itemContainer.style.backgroundColor = "black";
+      if (isDrawing && colorVal > 0) {
+        colorVal -= 10;
+        itemContainer.style.backgroundColor = `rgb(${colorVal}, ${colorVal}, ${colorVal})`;
       }
     });
 
@@ -41,6 +47,10 @@ function createGrid(gridSize) {
     container.appendChild(itemContainer);
     itemContainer.appendChild(counterDiv);
   }
+
+  document.addEventListener("mouseup", () => {
+    isDrawing = false;
+  });
 }
 
 function updateGrid() {
